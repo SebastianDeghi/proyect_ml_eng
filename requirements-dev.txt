@@ -1,0 +1,37 @@
+# =============================================
+# DEVELOPMENT DEPENDENCIES
+# =============================================
+# Install with: pip install -r requirements-dev.txt
+
+# Core dependencies (from requirements.txt)
+-r requirements.txt
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+pytest-asyncio==0.21.1
+
+# Code Quality
+black==23.11.0
+flake8==6.1.0
+pylint==3.0.2
+isort==5.12.0
+mypy==1.7.0
+
+# Benchmarking
+psutil==5.9.6
+
+# Async testing
+aiohttp==3.9.1
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.5.2
+
+# Pre-commit hooks
+pre-commit==3.5.0
+
+# Debugging
+ipdb==0.13.13
+rich==13.7.0

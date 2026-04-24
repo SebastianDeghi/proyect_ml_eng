@@ -1,0 +1,125 @@
+# =============================================
+# DOCKER COMPOSE - IMDB Sentiment Analysis
+# =============================================
+#
+# Usage:
+#   docker-compose up -d          # Start services
+#   docker-compose down           # Stop services
+#   docker-compose logs -f api    # View logs
+#   docker-compose ps             # Check status
+#
+# =============================================
+
+version: '3.8'
+
+services:
+  # =============================================
+  # API Service
+  # =============================================
+  api:
+    build:
+      context: .
+      dockerfile: ml_pipeline/api/Dockerfile
+    container_name: imdb-sentiment-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LOG_LEVEL=info
+    volumes:
+      # Mount models directory for persistence
+      - ./ml_pipeline/models:/app/ml_pipeline/models
+      # Mount config for live updates (optional)
+      - ./config.yaml:/app/config.yaml:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - imdb-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.imdb.rule=Host(`imdb-api.local`)"
+
+  # =============================================
+  # Optional: Monitoring with Prometheus
+  # =============================================
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: imdb-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    restart: unless-stopped
+    networks:
+      - imdb-network
+    profiles:
+      - monitoring
+
+  # =============================================
+  # Optional: Visualization with Grafana
+  # =============================================
+  grafana:
+    image: grafana/grafana:latest
+    container_name: imdb-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-piechart-panel
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    restart: unless-stopped
+    networks:
+      - imdb-network
+    depends_on:
+      - prometheus
+    profiles:
+      - monitoring
+
+  # =============================================
+  # Optional: Jupyter Notebook for development
+  # =============================================
+  jupyter:
+    image: jupyter/datascience-notebook:latest
+    container_name: imdb-jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./notebooks:/home/jovyan/work/notebooks
+      - ./ml_pipeline:/home/jovyan/work/ml_pipeline
+      - ./data:/home/jovyan/work/data
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    restart: unless-stopped
+    networks:
+      - imdb-network
+    profiles:
+      - dev
+
+# =============================================
+# Networks
+# =============================================
+networks:
+  imdb-network:
+    driver: bridge
+    name: imdb-network
+
+# =============================================
+# Volumes
+# =============================================
+volumes:
+  prometheus-data:
+    name: imdb-prometheus-data
+  grafana-data:
+    name: imdb-grafana-data

@@ -1,0 +1,605 @@
+# =============================================
+# .gitignore - IMDB Sentiment Analysis
+# =============================================
+# Project: ML Engineer Portfolio
+# Language: Python 3.8+
+# Framework: FastAPI, scikit-learn, PyTorch
+# =============================================
+
+# =============================================
+# Python / General
+# =============================================
+
+# Bytecode and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.pyo
+*.pyc
+
+# Distributions and packaging
+*.egg
+*.egg-info/
+*.egg-info/*
+dist/
+build/
+develop-eggs/
+downloads/
+eggs/
+parts/
+sdist/
+var/
+wheels/
+*.whl
+*.tgz
+*.tar.gz
+share/python-wheels/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+pythonenv*
+.virtualenv
+.conda
+.keras/
+.vscode/.ropeproject
+
+# Local configuration files
+*.local
+*.cfg
+*.ini
+setup.cfg
+pyproject.toml.bak
+
+# Test and coverage files
+.pytest_cache/
+.pytest_cache/*
+.tox/
+.tox/*
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.log
+htmlcov/
+nosetests.xml
+coverage/
+*.,cover
+.hypothesis/
+.pytest_cache/
+.mypy_cache/
+.mypy_cache/*
+.dmypy.json
+dmypy.json
+.mypy_cache/
+.ruff_cache/
+
+# Debugging and profiling
+*.prof
+*.pstats
+profile_results/
+debug.log
+*.pid
+*.dump
+*.trace
+
+# =============================================
+# Jupyter Notebooks
+# =============================================
+
+# Checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Saved outputs
+*.nbconvert.ipynb
+*.nblink
+*.ipynb.json
+
+# Jupyter extensions
+.jupyter/
+jupyter_notebook_config.py
+jupyter_notebook_config.json
+
+# =============================================
+# Models and data (LARGE FILES)
+# =============================================
+
+# Serialized models
+*.pkl
+*.joblib
+*.pickle
+*.pkl.z
+*.joblib.z
+*.h5
+*.hdf5
+*.h5py
+*.keras
+*.pth
+*.pt
+*.bin
+*.caffemodel
+*.onnx
+*.tflite
+*.pb
+*.sav
+*.dill
+*.model
+*.weights
+*.params
+
+# Word2Vec / Embeddings
+*.wordvectors
+*.kv
+*.w2v
+*.bin
+*.vec
+*.embeddings
+*.wv
+
+# Model directories
+ml_pipeline/models/
+ml_pipeline/models/*
+!ml_pipeline/models/.gitkeep
+models/
+saved_models/
+model_checkpoints/
+checkpoints/
+*.ckpt
+*.ckpt/*
+epoch_*.ckpt
+*.pth.tar
+
+# Datasets and raw data
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.xls
+*.xlsx
+*.jsonl
+*.db
+*.sqlite
+*.sqlite3
+*.arrow
+*.rec
+*.orc
+data/
+datasets/
+imdb_dataset/
+imdb_dataset/*
+raw_data/
+processed_data/
+interim_data/
+external_data/
+*.zip
+*.tar
+*.7z
+*.rar
+
+# Kaggle downloads
+.kaggle/
+kaggle.json
+kagglehub/
+.kagglehub/
+
+# =============================================
+# FastAPI / API
+# =============================================
+
+# API logs
+api.log
+app.log
+uvicorn.log
+*.access.log
+*.error.log
+logs/
+log/
+
+# API temporary files
+*.pid
+*.sock
+*.socket
+*.asgi
+*.wsgi
+
+# =============================================
+# Docker
+# =============================================
+
+# Docker artifacts
+*.dockerignore
+Dockerfile.*
+docker-compose.*.yml
+docker-compose.*.yaml
+.docker/
+docker/
+docker-build/
+*.tar
+*.tar.gz
+*.tar.bz2
+
+# Docker volumes
+docker-volumes/
+volumes/
+*.volume
+
+# =============================================
+# IDEs and editors
+# =============================================
+
+# Visual Studio Code
+.vscode/
+.vscode/*
+.history/
+*.code-workspace
+*.code-snippets
+
+# PyCharm / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+out/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+.sublime/
+
+# Jupyter Lab / Notebook
+.jupyter/
+jupyter_notebook_config.py
+lab_workspace/
+
+# Vim / NeoVim
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# Spyder
+.spyderproject
+.spyproject
+.spyderpy
+
+# =============================================
+# Operating Systems
+# =============================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+*.directory
+*.bak
+*.old
+*.orig
+
+# =============================================
+# Logs and databases
+# =============================================
+
+# Logs
+*.log
+*.log.*
+logs/
+log/
+debug.log
+error.log
+info.log
+warning.log
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+*.db3
+*.ldb
+*.sql
+*.sql-journal
+
+# =============================================
+# Environment and secrets
+# =============================================
+
+# Environment variables
+.env
+.env.*
+!.env.example
+.env.local
+.env.production
+.env.development
+.env.staging
+.env.test
+
+# Secrets and keys
+*.key
+*.pem
+*.crt
+*.cer
+*.p12
+*.pfx
+secrets/
+secrets.yaml
+credentials.json
+service_account.json
+*.secret
+*.token
+
+# AWS / GCP / Azure
+.aws/
+.gcloud/
+.azure/
+~/.aws/
+~/.gcloud/
+
+# =============================================
+# MLflow / Experiment tracking
+# =============================================
+
+mlruns/
+mlruns/*
+mlflow.db
+mlflow.log
+mlflow_artifacts/
+*.mlflow
+
+# =============================================
+# Temporary documentation
+# =============================================
+
+# Sphinx
+docs/_build/
+docs/build/
+site/
+_site/
+*.doctree
+*.inv
+
+# MkDocs
+site/
+*.site
+
+# =============================================
+# Backup files
+# =============================================
+
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.crdownload
+*.part
+*.download
+
+# =============================================
+# Temporary notebooks
+# =============================================
+
+*.ipynb_checkpoints/
+*.ipynb.bak
+*.ipynb.tmp
+*.ipynb.orig
+Untitled*.ipynb
+
+# =============================================
+# Cache files
+# =============================================
+
+.cache/
+.cache/*
+*.cache
+*.cached
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Pip / pipenv
+pip-log.txt
+pip-delete-this-directory.txt
+.pip/
+.pip/*
+pip-wheel-metadata/
+Pipfile.lock
+Pipfile
+poetry.lock
+poetry.toml
+
+# =============================================
+# Project-specific files
+# =============================================
+
+# Training results
+training_results/
+evaluation_results/
+outputs/
+results/
+reports/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.html
+figures/
+plots/
+images/generated/
+
+# Temporary WordClouds
+wordcloud_*.png
+cloud_*.png
+
+# Training checkpoints
+checkpoints/
+*.ckpt
+*.pth.tar
+
+# Local configuration
+config.local.yaml
+config.local.yml
+.local_config
+
+# Session files
+session_info.txt
+environment_info.txt
+requirements.frozen.txt
+
+# =============================================
+# Large specific files (optional)
+# =============================================
+
+# Ignore files > 100 MB (to avoid GitHub limits)
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+*.iso
+*.dmg
+*.vmdk
+*.ova
+*.qcow2
+
+# =============================================
+# Development files
+# =============================================
+
+# Pre-commit
+.pre-commit-config.local.yaml
+
+# Development dependencies
+.devcontainer/
+devcontainer.json
+
+# =============================================
+# Code quality tools
+# =============================================
+
+.bandit
+.bandit/
+.flake8
+.flake8*
+.pylintrc
+.pylint.d
+.mypy_cache/
+.mypy_cache/*
+.ruff_cache/
+.ruff_cache/*
+.tox/
+.tox/*
+
+# =============================================
+# IMPORTANT NOTES
+# =============================================
+# 
+# 1. To keep notebook examples in the repo, use:
+#    git add --force notebooks/IMDB_Sentiment_Analysis.ipynb
+#
+# 2. For configuration files with secrets, use:
+#    .env.example (with fake values) and .env (ignored)
+#
+# 3. For small models (< 100 MB), consider Git LFS:
+#    git lfs track "*.pkl"
+#    git lfs track "*.joblib"
+#
+# 4. To keep empty folders, use .gitkeep inside them
+#
+# =============================================
+
+# =============================================
+# EXCEPTIONS (files that SHOULD be versioned)
+# =============================================
+
+# Example .env file (do not ignore if it's .env.example)
+!.env.example
+!.env.template
+
+# Example configuration
+!config.yaml
+!config.example.yaml
+
+# Example notebook (if you want to keep it)
+!notebooks/*.ipynb
+
+# Example requirements
+!requirements.txt
+!requirements-dev.txt
+
+# READMEs and documentation
+!README.md
+!CONTRIBUTING.md
+!CODE_OF_CONDUCT.md
+
+# Example files
+!examples/*.py
+!examples/*.ipynb
+!scripts/*.py
+
+# Docker
+!Dockerfile
+!docker-compose.yml
+
+# CI/CD
+!.github/
+!.github/workflows/*.yml
+
+# =============================================
+# END OF .gitignore
+# =============================================

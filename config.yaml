@@ -1,0 +1,56 @@
+# =============================================
+# CONFIG.YAML - IMDB Sentiment Analysis
+# =============================================
+# Configuration file for model training and inference
+# =============================================
+
+# Dataset configuration
+data:
+  local_folder: "imdb_dataset"
+  csv_filename: "IMDB Dataset.csv"
+  test_size: 0.2
+  random_state: 42
+
+# Text preprocessing
+preprocessing:
+  max_features: 10000
+  ngram_range: [1, 2]
+  min_word_frequency: 5
+
+# Word2Vec configuration
+word2vec:
+  vector_size: 100
+  window: 5
+  min_count: 5
+  sg: 1  # Skip-gram
+  epochs: 5
+  workers: 4
+  seed: 42
+
+# Best model configuration (TF-IDF + Logistic Regression)
+best_model:
+  type: "LogisticRegression"
+  representation: "TF-IDF"
+  parameters:
+    C: 1.0
+    solver: "liblinear"
+    max_iter: 1000
+    random_state: 42
+
+# Paths
+paths:
+  models_dir: "ml_pipeline/models"
+  model_filename: "model.pkl"
+  vectorizer_filename: "vectorizer.pkl"
+  w2v_model_filename: "word2vec.model"
+
+# API configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: false
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
