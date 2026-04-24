@@ -33,41 +33,41 @@ The project evolves from a Data Science workflow into a **Machine Learning Engin
 ```
 proyect_ml_eng/
 ├── 📂 .github/workflows/
-│ └── 📄 ci_cd.yml # CI/CD pipeline with GitHub Actions
+│ └── ci_cd.yml                      # CI/CD pipeline with GitHub Actions
 ├── 📂 ml_pipeline/
-│ ├── 📄 init.py
-│ ├── 🐍 train_model.py # Model training script
-│ ├── 🐍 predict.py # Prediction module
-│ ├── ⚙️ config.yaml # Configuration file
-│ ├── 📂 models/ # Saved models (generated)
-│ │ ├── 🧠 model.pkl
-│ │ └── 📊 vectorizer.pkl
+│ ├── init.py
+│ ├── train_model.py                 # Model training script
+│ ├── predict.py                     # Prediction module
+│ ├── config.yaml                    # Configuration file
+│ ├── 📂 models/
+│ │ ├── model.pkl                    # Saved models (generated)
+│ │ └── vectorizer.pkl
 │ ├── 📂 api/
-│ │ ├── 📄 init.py
-│ │ ├── 🚀 app.py # FastAPI application
-│ │ └── 🐳 Dockerfile # Containerization
+│ │ ├── init.py
+│ │ ├── app.py                      # FastAPI application
+│ │ └── Dockerfile                  # Containerization
 │ └── 📂 tests/
-│ ├── 📄 init.py
-│ └── ✅ test_predict.py # Unit tests (17 tests)
+│ ├── init.py
+│ └── test_predict.py               # Unit tests (17 tests)
 ├── 📂 notebooks/
-│ └── 📓 IMDB_Sentiment_Analysis.ipynb # Original EDA and modeling
+│ └── IMDB_Sentiment_Analysis.ipynb # Original EDA and modeling
 ├── 📂 examples/
-│ ├── 📜 api_examples.py # API usage examples
-│ └── 📓 notebook_usage.ipynb # Notebook usage example
+│ ├── api_examples.py               # API usage examples
+│ └── notebook_usage.ipynb          # Notebook usage example
 ├── 📂 scripts/
-│ ├── 📥 download_dataset.py # Dataset download utility
-│ └── ⏱️ benchmark_model.py # Performance benchmarks
+│ ├── download_dataset.py           # Dataset download utility
+│ └── benchmark_model.py            # Performance benchmarks
 ├── 📂 monitoring/
-│ └── 📈 prometheus.yml # Prometheus configuration
-├── 📦 requirements.txt # Production dependencies
-├── 🔧 requirements-dev.txt # Development dependencies
-├── 🐳 docker-compose.yml # Multi-container setup
-├── 🛠️ Makefile # Common commands
-├── 📋 pyproject.toml # Project configuration
-├── 🔒 .pre-commit-config.yaml # Pre-commit hooks
-├── 🙈 .gitignore
-├── 📄 LICENSE
-└── 📖 README.md
+│ └── prometheus.yml                # Prometheus configuration
+├── requirements.txt                # Production dependencies
+├── requirements-dev.txt            # Development dependencies
+├── docker-compose.yml              # Multi-container setup
+├── Makefile                        # Common commands
+├── pyproject.toml                  # Project configuration
+├── .pre-commit-config.yaml         # Pre-commit hooks
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
 ---
@@ -149,13 +149,6 @@ The best model (**TF-IDF + Logistic Regression**) is deployed as a REST API with
 - Python 3.8+
 - pip
 - (Optional) Docker Desktop
-
-### Clone the repository
-
-```bash
-git clone https://github.com/SebastianDeghi/proyect_ml_eng.git
-cd proyect_ml_eng
-```
 
 ### Clone the repository
 
