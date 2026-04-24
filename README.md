@@ -50,7 +50,7 @@ proyect_ml_eng/
 │ ├── init.py
 │ └── test_predict.py               # Unit tests (17 tests)
 ├── 📂 notebooks/
-│ └── IMDB_Sentiment_Analysis.ipynb # Original EDA and modeling
+│ └── IMDB_NLP_Sentiment_Analysis.ipynb # Original EDA and modeling
 ├── 📂 examples/
 │ ├── api_examples.py               # API usage examples
 │ └── notebook_usage.ipynb          # Notebook usage example
