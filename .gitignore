@@ -103,6 +103,7 @@ debug.log
 *.nbconvert.ipynb
 *.nblink
 *.ipynb.json
+.virtual_documents/
 
 # Jupyter extensions
 .jupyter/
@@ -157,7 +158,6 @@ checkpoints/
 *.ckpt/*
 epoch_*.ckpt
 *.pth.tar
-*.virtual_documents/
 
 # Datasets and raw data
 *.csv
@@ -600,6 +600,16 @@ devcontainer.json
 # CI/CD
 !.github/
 !.github/workflows/*.yml
+
+# =============================================
+# PERSONAL EXCEPTIONS
+# =============================================
+
+# notebooks og IMDB NLP
+IMDB_NLP_Sentiment_Analysis_v*.ipynb
+
+# workflow
+WorkFlow.txt
 
 # =============================================
 # END OF .gitignore
