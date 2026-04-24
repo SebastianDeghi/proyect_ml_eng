@@ -157,6 +157,7 @@ checkpoints/
 *.ckpt/*
 epoch_*.ckpt
 *.pth.tar
+*.virtual_documents/
 
 # Datasets and raw data
 *.csv
